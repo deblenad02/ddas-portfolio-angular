@@ -56,7 +56,7 @@ ng build
 ```
 The build output will be generated in the dist/ directory.
 ## Author
-# Deblena Das
+Deblena Das
 
 Master’s student in Software Engineering and Digital Transformation at ESIGELEC, currently working as a Full-Stack Intern at Presage SAS in Paris.
 
