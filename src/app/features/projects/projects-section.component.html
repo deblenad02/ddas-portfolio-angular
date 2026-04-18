@@ -1,0 +1,93 @@
+<section id="projects" class="projects-section">
+  <div class="projects-card">
+    <div class="projects-header">
+      <span class="projects-eyebrow">Projects</span>
+      <h2 class="projects-title">Academic Projects</h2>
+      <p class="projects-intro">
+        A few projects that reflect my interest in software development, machine learning,
+        interactive applications, and user-focused product building.
+      </p>
+    </div>
+
+    <div class="projects-grid">
+      @for (project of projects; track project.title) {
+        <button type="button" class="project-item-card" (click)="openProject(project)">
+          <div class="project-item-top">
+            <span class="project-item-category">{{ project.category }}</span>
+            <span class="project-item-period">{{ project.period }}</span>
+          </div>
+
+          <h3 class="project-item-title">{{ project.title }}</h3>
+          <p class="project-item-summary">{{ project.shortSummary }}</p>
+
+          <div class="project-item-tags">
+            @for (tag of project.stack; track tag) {
+              <span class="project-item-tag">{{ tag }}</span>
+            }
+          </div>
+
+          <span class="project-item-cta">View project</span>
+        </button>
+      }
+    </div>
+  </div>
+
+  @if (selectedProject; as project) {
+    <div class="projects-dialog-backdrop" (click)="closeDialog()">
+      <div
+        class="projects-dialog"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="project-dialog-title"
+        (click)="$event.stopPropagation()"
+      >
+        <div class="projects-dialog-header">
+          <div>
+            <span class="projects-dialog-eyebrow">{{ project.category }}</span>
+            <h3 id="project-dialog-title" class="projects-dialog-title">{{ project.title }}</h3>
+            <p class="projects-dialog-period">{{ project.period }}</p>
+          </div>
+
+          <button
+            type="button"
+            class="projects-dialog-close"
+            (click)="closeDialog()"
+            aria-label="Close dialog"
+          >
+            ×
+          </button>
+        </div>
+
+        <div class="projects-dialog-body">
+          <div class="projects-dialog-panel">
+            <h4 class="projects-dialog-section-title">Project Overview</h4>
+            <p class="projects-dialog-text">{{ project.description }}</p>
+          </div>
+
+          <div class="projects-dialog-panel">
+            <h4 class="projects-dialog-section-title">Technology Stack</h4>
+            <div class="projects-dialog-tags">
+              @for (tag of project.stack; track tag) {
+                <span class="projects-dialog-tag">{{ tag }}</span>
+              }
+            </div>
+          </div>
+
+          @if (project.githubUrl) {
+            <div class="projects-dialog-panel">
+              <h4 class="projects-dialog-section-title">Repository</h4>
+              <a
+                class="projects-dialog-link"
+                [href]="project.githubUrl"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                View on GitHub
+              </a>
+            </div>
+          }
+        </div>
+      </div>
+    </div>
+  }
+</section>

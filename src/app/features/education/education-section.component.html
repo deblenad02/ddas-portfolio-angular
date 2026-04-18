@@ -1,0 +1,46 @@
+<section id="education" class="education-section">
+  <div class="education-card">
+    <div class="education-header-block">
+      <span class="education-eyebrow">Education</span>
+      <h2 class="education-title">Academic Background</h2>
+      <p class="education-intro">
+        My academic journey reflects a strong foundation in software engineering, computer science,
+        and digital transformation.
+      </p>
+    </div>
+
+    <div class="education-list">
+      @for (item of educationItems; track item.degree) {
+        <article class="education-item-card">
+          <div class="education-icon-wrap">
+            <div class="education-icon">🎓</div>
+          </div>
+
+          <div class="education-content">
+            <div class="education-top-row">
+              <div>
+                <h3 class="education-degree">{{ item.degree }}</h3>
+
+                @if (item.specialization) {
+                  <p class="education-specialization">{{ item.specialization }}</p>
+                }
+
+                <p class="education-institution">{{ item.institution }}</p>
+              </div>
+
+              <span class="education-period">{{ item.period }}</span>
+            </div>
+
+            <div class="education-meta">
+              <span class="education-location">{{ item.location }}</span>
+
+              @if (item.score) {
+                <span class="education-score">{{ item.score }}</span>
+              }
+            </div>
+          </div>
+        </article>
+      }
+    </div>
+  </div>
+</section>

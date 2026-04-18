@@ -1,0 +1,25 @@
+<section id="skills" class="skills-section">
+  <div class="skills-card">
+    <div class="skills-header">
+      <span class="skills-eyebrow">Skills</span>
+      <h2 class="skills-title">Technical Skills</h2>
+      <p class="skills-intro">
+        A concise overview of the technical skills, tools, and platforms highlighted in my CV.
+      </p>
+    </div>
+
+    <div class="skills-grid">
+      @for (category of skillCategories; track category.title) {
+        <div class="skill-category-card">
+          <h3 class="skill-category-title">{{ category.title }}</h3>
+
+          <div class="skill-tags">
+            @for (item of category.items; track item) {
+              <span class="skill-tag">{{ item }}</span>
+            }
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>

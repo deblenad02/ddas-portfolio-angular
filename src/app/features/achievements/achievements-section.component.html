@@ -1,0 +1,46 @@
+<section id="achievements" class="achievements-section">
+  <div class="section-card">
+    <div class="section-header">
+      <span class="section-eyebrow">Achievements</span>
+      <h2 class="section-title">Achievements & Languages</h2>
+      <p class="section-intro">
+        This section presents my achievements and language proficiencies from my CV.
+      </p>
+    </div>
+
+    <div class="details-grid">
+      <article class="inner-card">
+        <div class="inner-card-header">
+          <h3 class="inner-card-title">Achievements</h3>
+        </div>
+
+        <div class="achievement-list">
+          @for (achievement of achievements; track achievement.title) {
+            <div class="achievement-item">
+              <div class="achievement-badge">★</div>
+
+              <div class="achievement-content">
+                <h4 class="achievement-title">{{ achievement.title }}</h4>
+                <p class="achievement-meta">
+                  {{ achievement.organization }} · {{ achievement.year }}
+                </p>
+              </div>
+            </div>
+          }
+        </div>
+      </article>
+
+      <article class="inner-card">
+        <div class="inner-card-header">
+          <h3 class="inner-card-title">Languages</h3>
+        </div>
+
+        <div class="language-tags">
+          @for (language of languages; track language.name) {
+            <span class="language-tag">{{ language.name }}</span>
+          }
+        </div>
+      </article>
+    </div>
+  </div>
+</section>

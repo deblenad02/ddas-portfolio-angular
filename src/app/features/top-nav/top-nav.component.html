@@ -1,0 +1,13 @@
+<nav class="top-nav" aria-label="Portfolio sections">
+  <div class="top-nav__inner">
+    @for (item of navItems; track item.id) {
+      <button
+        type="button"
+        class="top-nav__link"
+        [class.top-nav__link--active]="activeSectionId === item.id"
+        (click)="scrollToSection(item.id)">
+        {{ item.label }}
+      </button>
+    }
+  </div>
+</nav>
